@@ -6,37 +6,37 @@
     knight: {
       id: 'knight', name: 'Sir Bolt', title: 'Knight', emoji: '🤺', color: '#4a7bd1',
       base: { hp: 70, atk: 8, def: 5, spd: 9, crit: 0.05 },
-      skill: 'Shield Bash — every 3rd attack hits extra hard. Monsters love to attack the Knight, keeping friends safe!',
+      skill: 'Monsters love to attack the Knight, keeping friends safe. Every 3rd hit is a Shield Bash.',
       weapon: 'Sword', armor: 'Plate', charm: 'Badge', ranged: false,
     },
     archer: {
       id: 'archer', name: 'Lina', title: 'Archer', emoji: '🧝', color: '#3aa856',
       base: { hp: 45, atk: 10, def: 2, spd: 12, crit: 0.1 },
-      skill: 'Sharp Eye — always shoots the weakest monster.',
+      skill: 'Sharp Eye: always shoots the weakest monster.',
       weapon: 'Bow', armor: 'Vest', charm: 'Feather', ranged: true, shot: '➶',
     },
     mage: {
       id: 'mage', name: 'Merlo', title: 'Mage', emoji: '🧙', color: '#8a4fd1',
       base: { hp: 40, atk: 9, def: 2, spd: 9, crit: 0.05 },
-      skill: 'Fireball — hits ALL monsters at once. Every 4th spell is a giant Meteor!',
+      skill: 'Fireballs hit ALL monsters at once.',
       weapon: 'Staff', armor: 'Robe', charm: 'Orb', ranged: true, shot: '🔥',
     },
     healer: {
       id: 'healer', name: 'Pixie', title: 'Healer', emoji: '🧚', color: '#e46fb0',
       base: { hp: 50, atk: 7, def: 3, spd: 10, crit: 0.05 },
-      skill: 'Healing Light — heals hurt friends. Attacks when everyone is healthy.',
+      skill: 'Healing Light: heals hurt friends, and attacks when everyone is healthy.',
       weapon: 'Wand', armor: 'Cloak', charm: 'Bell', ranged: true, shot: '✨',
     },
     ninja: {
       id: 'ninja', name: 'Kage', title: 'Ninja', emoji: '🥷', color: '#3b3b4f',
       base: { hp: 48, atk: 11, def: 3, spd: 14, crit: 0.35 },
-      skill: 'Shadow Strike — super fast with lots of critical hits. Every 3rd move strikes twice!',
+      skill: 'Super fast with lots of critical hits. Every 3rd move strikes twice!',
       weapon: 'Stars', armor: 'Garb', charm: 'Mask', ranged: false,
     },
     dragon: {
       id: 'dragon', name: 'Ember', title: 'Dragon', emoji: '🐲', color: '#d1452f',
       base: { hp: 85, atk: 13, def: 6, spd: 10, crit: 0.1 },
-      skill: 'Dragon Breath — every 3rd move breathes fire on ALL monsters.',
+      skill: 'Every 3rd move breathes fire on ALL monsters.',
       weapon: 'Claws', armor: 'Scales', charm: 'Gem', ranged: false,
     },
   };
@@ -105,9 +105,9 @@
       deco: ['🌲', '🍄', '🌲', '🍂', '🌿'],
       monsters: [
         { name: 'Night Bat', emoji: '🦇', arch: 'fast' },
-        { name: 'Web Spider', emoji: '🕷️', arch: 'normal' },
+        { name: 'Web Spider', emoji: '🕷️', arch: 'normal', fx: 'web' },
         { name: 'Shadow Wolf', emoji: '🐺', arch: 'hitter' },
-        { name: 'Old Owl', emoji: '🦉', arch: 'tank' },
+        { name: 'Old Owl', emoji: '🦉', arch: 'tank', fx: 'feather' },
       ],
       boss: { name: 'Goblin King', emoji: '👺' },
     },
@@ -116,12 +116,12 @@
       bg: 'linear-gradient(180deg,#1e1b3a 0%,#3b3270 45%,#4a3f7a 46%,#231d45 100%)',
       deco: ['💎', '🪨', '💎', '✨', '🔮'],
       monsters: [
-        { name: 'Cave Snake', emoji: '🐍', arch: 'fast' },
+        { name: 'Cave Snake', emoji: '🐍', arch: 'fast', fx: 'spit' },
         { name: 'Rock Crab', emoji: '🦀', arch: 'tank' },
-        { name: 'Spooky Ghost', emoji: '👻', arch: 'normal' },
+        { name: 'Spooky Ghost', emoji: '👻', arch: 'normal', fx: 'magic' },
         { name: 'Stone Golem', emoji: '🗿', arch: 'hitter' },
       ],
-      boss: { name: 'Cave Kraken', emoji: '🐙' },
+      boss: { fx: 'spit', name: 'Cave Kraken', emoji: '🐙' },
     },
     {
       id: 'desert', name: 'Sandy Dunes', emoji: '🏜️',
@@ -133,7 +133,7 @@
         { name: 'Sleepy Mummy', emoji: '🧟', arch: 'tank' },
         { name: 'Desert Vulture', emoji: '🦅', arch: 'normal' },
       ],
-      boss: { name: 'Sand Genie', emoji: '🧞' },
+      boss: { fx: 'magic', name: 'Sand Genie', emoji: '🧞' },
     },
     {
       id: 'peaks', name: 'Frosty Peaks', emoji: '🏔️',
@@ -141,8 +141,8 @@
       deco: ['❄️', '🏔️', '⛄', '❄️', '🌨️'],
       monsters: [
         { name: 'Angry Penguin', emoji: '🐧', arch: 'fast' },
-        { name: 'Evil Snowman', emoji: '☃️', arch: 'tank' },
-        { name: 'Ice Sprite', emoji: '❄️', arch: 'normal' },
+        { name: 'Evil Snowman', emoji: '☃️', arch: 'tank', fx: 'ice' },
+        { name: 'Ice Sprite', emoji: '❄️', arch: 'normal', fx: 'ice' },
         { name: 'Wild Bison', emoji: '🦬', arch: 'hitter' },
       ],
       boss: { name: 'Mega Mammoth', emoji: '🦣' },
@@ -152,12 +152,12 @@
       bg: 'linear-gradient(180deg,#3a0d0d 0%,#8a1f12 45%,#5a1a10 46%,#2a0a05 100%)',
       deco: ['🌋', '🔥', '🪨', '🔥', '💥'],
       monsters: [
-        { name: 'Flame Sprite', emoji: '🔥', arch: 'fast' },
+        { name: 'Flame Sprite', emoji: '🔥', arch: 'fast', fx: 'fire' },
         { name: 'Lava Turtle', emoji: '🐢', arch: 'tank' },
-        { name: 'Little Imp', emoji: '😈', arch: 'normal' },
+        { name: 'Little Imp', emoji: '😈', arch: 'normal', fx: 'fire' },
         { name: 'Rex', emoji: '🦖', arch: 'hitter' },
       ],
-      boss: { name: 'Inferno Dragon', emoji: '🐉' },
+      boss: { fx: 'fire', name: 'Inferno Dragon', emoji: '🐉' },
     },
     {
       id: 'sky', name: 'Cloud Castle', emoji: '🏰',
@@ -165,16 +165,15 @@
       deco: ['☁️', '🏰', '⭐', '☁️', '🌙'],
       monsters: [
         { name: 'Storm Eagle', emoji: '🦅', arch: 'fast' },
-        { name: 'Robo Guard', emoji: '🤖', arch: 'tank' },
-        { name: 'Space Invader', emoji: '👾', arch: 'normal' },
-        { name: 'Twister', emoji: '🌪️', arch: 'hitter' },
+        { name: 'Robo Guard', emoji: '🤖', arch: 'tank', fx: 'laser' },
+        { name: 'Space Invader', emoji: '👾', arch: 'normal', fx: 'laser' },
+        { name: 'Twister', emoji: '🌪️', arch: 'hitter', fx: 'wind' },
       ],
-      boss: { name: 'Count Zero', emoji: '🧛' },
+      boss: { fx: 'magic', name: 'Count Zero', emoji: '🧛' },
     },
   ];
 
   const STAGES_PER_AREA = 6; // 5 battles + boss
-  const STAGE_LAYOUT = [[0, 1], [1, 2], [0, 2, 3], [2, 3, 1], [3, 0, 3]];
   const AREA_GROWTH = 1.8;
 
   /* What beating each boss unlocks (index = area index). */
@@ -193,7 +192,7 @@
     const g = Math.pow(AREA_GROWTH, area) * (1 + 0.09 * stage) * (scale || 1);
     const a = isBoss ? { hp: 4.2, atk: 1.45, def: 1.3, spd: 1.0 } : ARCH[def.arch];
     return {
-      name: def.name, emoji: def.emoji, boss: !!isBoss,
+      name: def.name, emoji: def.emoji, boss: !!isBoss, arch: isBoss ? 'boss' : def.arch, fx: def.fx || null, area,
       maxHp: Math.round(TUNE.hp * g * a.hp * (isBoss ? TUNE.boss : 1)),
       atk: Math.round(TUNE.atk * g * a.atk * 10) / 10,
       def: Math.round(TUNE.def * g * a.def * 10) / 10,
@@ -203,34 +202,57 @@
     };
   }
 
-  function stageEnemies(areaIdx, stage) {
+  /* Monsters in each wave of a regular battle (indexes into the land's monster list). */
+  const WAVES = [
+    [[0, 1], [1, 2]],
+    [[1, 2], [0, 2, 3]],
+    [[0, 1], [2, 3], [0, 2, 3]],
+    [[2, 3], [1, 0], [2, 3, 1]],
+    [[3, 0], [1, 2], [3, 0, 3]],
+  ];
+  const XP_BONUS = 1.25;
+  const sumXp = (list) => list.reduce((x, m) => x + m.xp, 0);
+
+  /* A battle is a list of waves plus the XP it pays out. */
+  function stageBattle(areaIdx, stage) {
     const A = AREAS[areaIdx];
     if (stage === STAGES_PER_AREA - 1) {
-      return [
+      const guards = [0, 1, 2].map((i) => monsterUnit(areaIdx, stage - 1, A.monsters[i], false));
+      const final = [
         monsterUnit(areaIdx, stage - 1, A.monsters[0], false),
         monsterUnit(areaIdx, stage, A.boss, true),
         monsterUnit(areaIdx, stage - 1, A.monsters[1], false),
       ];
+      return { waves: [guards, final], xp: Math.round(sumXp(final) * XP_BONUS), boss: A.boss.name };
     }
-    return STAGE_LAYOUT[stage].map((i) => monsterUnit(areaIdx, stage, A.monsters[i], false));
+    const waves = WAVES[stage].map((w) => w.map((i) => monsterUnit(areaIdx, stage, A.monsters[i], false)));
+    return { waves, xp: Math.round(sumXp(waves[waves.length - 1]) * XP_BONUS) };
   }
 
-  function towerEnemies(floor) {
+  function towerBattle(floor) {
     // Endless tower: mixes monsters from every area, ever stronger.
     const scale = Math.pow(1.12, floor - 1);
-    const count = floor % 5 === 0 ? 3 : 2 + (floor % 2);
-    const list = [];
     let seed = floor * 9301 + 49297;
     const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
-    for (let i = 0; i < count; i++) {
-      const a = AREAS[Math.floor(rnd() * AREAS.length)];
-      if (floor % 5 === 0 && i === 1) {
-        list.push(monsterUnit(6, 5, a.boss, true, scale));
-      } else {
-        list.push(monsterUnit(6, 4, a.monsters[Math.floor(rnd() * 4)], false, scale));
+    const bossFloor = floor % 5 === 0;
+    const wave = (n, withBoss) => {
+      const list = [];
+      for (let i = 0; i < n; i++) {
+        const a = AREAS[Math.floor(rnd() * AREAS.length)];
+        if (withBoss && i === 1) list.push(monsterUnit(6, 5, a.boss, true, scale));
+        else list.push(monsterUnit(6, 4, a.monsters[Math.floor(rnd() * 4)], false, scale));
       }
-    }
-    return list;
+      return list;
+    };
+    const waves = [wave(2, false), wave(bossFloor ? 3 : 2 + (floor % 2), bossFloor)];
+    return { waves, xp: Math.round(sumXp(waves[1]) * XP_BONUS), boss: bossFloor ? waves[1][1].name : null };
+  }
+
+  /* Every distinct monster in a battle (for previews). */
+  function battleRoster(battle) {
+    const seen = new Map();
+    for (const w of battle.waves) for (const m of w) if (!seen.has(m.name) || m.boss) seen.set(m.name, m);
+    return [...seen.values()].sort((a, b) => (b.boss ? 1 : 0) - (a.boss ? 1 : 0));
   }
 
   const PETS = [
@@ -287,6 +309,8 @@
     return Math.round(Math.sqrt(s.maxHp * s.atk * (1 + s.def / 20)) * Math.sqrt(s.spd / 10) * 2);
   }
 
+  function totalStars(p) { return Object.values(p.stars || {}).reduce((a, b) => a + b, 0); }
+
   const TROPHIES = [
     { id: 'first_quest', emoji: '📜', name: 'First Quest', desc: 'Solve your first quest', check: (p) => p.stats.solved >= 1 },
     { id: 'q10', emoji: '🧮', name: 'Number Cruncher', desc: 'Solve 10 quests', check: (p) => p.stats.solved >= 10 },
@@ -311,6 +335,10 @@
     { id: 'lvl25', emoji: '🌟', name: 'Super Hero', desc: 'Get a hero to level 25', check: (p) => Object.values(p.heroes).some((h) => h.level >= 25) },
     { id: 'bestiary20', emoji: '📖', name: 'Monster Expert', desc: 'Discover 20 kinds of monsters', check: (p) => Object.keys(p.bestiary).length >= 20 },
     { id: 'pets5', emoji: '🐾', name: 'Pet Friend', desc: 'Unlock 5 pets', check: (p) => p.pets.length >= 5 },
+    { id: 'stars30', emoji: '⭐', name: 'Star Collector', desc: 'Earn 30 battle stars', check: (p) => totalStars(p) >= 30 },
+    { id: 'stars100', emoji: '🌟', name: 'Superstar', desc: 'Earn 100 battle stars', check: (p) => totalStars(p) >= 100 },
+    { id: 'super10', emoji: '⚡', name: 'Super Powered', desc: 'Use 10 super powers in battle', check: (p) => (p.stats.ults || 0) >= 10 },
+    { id: 'block1', emoji: '🛡️', name: 'Perfect Block', desc: 'Block a boss attack with Shield Wall', check: (p) => (p.stats.blocks || 0) >= 1 },
     { id: 'tower10', emoji: '🗼', name: 'Tower Climber', desc: 'Reach floor 10 of the Endless Tower', check: (p) => p.towerBest >= 10 },
     { id: 'tower25', emoji: '🌌', name: 'Sky High', desc: 'Reach floor 25 of the Endless Tower', check: (p) => p.towerBest >= 25 },
   ];
@@ -319,6 +347,6 @@
 
   window.GameData = {
     HEROES, HERO_ORDER, TIERS, MAX_TIER, SLOTS, AREAS, STAGES_PER_AREA, BOSS_UNLOCKS, PETS, TROPHIES, AVATARS,
-    TUNE, gearStats, gearPrice, gearName, priceMult, stageEnemies, towerEnemies, petMods, heroStats, heroPower, xpToNext,
+    TUNE, totalStars, gearStats, gearPrice, gearName, priceMult, stageBattle, towerBattle, battleRoster, petMods, heroStats, heroPower, xpToNext,
   };
 })();
